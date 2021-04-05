@@ -3,23 +3,20 @@ import styles from './Select.module.css'
 
 
 const Select = ({ props }) => {
-    const [value, setValue] = useState(props.value)
-    const handleChangeValue = (event) => setValue(event.target.value)
-
     const [helpText, setHelpText] = useState(props.helpText)
 
     useEffect(() => {
-        if (value === "") {
-            setHelpText("Debes elegir una opción, es obligatorio")
+        if (props.value === "") {
+            setHelpText("Debes elegir una opción, es requerido")
         } else {
             setHelpText("")
         }
-    }, [value])
+    }, [props.value])
 
     return (
         <div className={styles.Select}>
             <label className="form-label">{props.label}</label>
-            <select onChange={handleChangeValue}
+            <select onChange={props.handle}
                 className="form-select form-control-lg"
             >
                 {props.options.map(

@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import styles from './Input.module.css'
 
 const Input = ({ props }) => {
-    const [value, setvalue] = useState(props.value)
-    const handleChangeValue = (event) => setvalue(event.target.value)
-
     useEffect(() => {
-        // console.log(value);
-    }, [value]);
+        // console.log("INIT: Input");
+    }, []);
 
     return (
         <div className={styles.Input}>
             <label className="form-label">{props.label}</label>
             <input type={props.type}
                 className="form-control form-control-lg"
-                value={value}
-                onChange={handleChangeValue}
+                value={props.value}
+                onChange={props.handle}
                 placeholder={props.placeholder}
             />
             <div className="form-text">

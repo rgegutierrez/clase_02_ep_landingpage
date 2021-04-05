@@ -4,7 +4,7 @@ import styles from './Menu.module.css'
 const Menu = (props) => {
 
     useEffect(() => {
-        console.log("Menu");
+        // console.log("Menu");
     });
 
     return (

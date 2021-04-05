@@ -17,8 +17,8 @@ const Form = ({ title, subtitle, arrInputs }) => {
     }
 
     const handleSendForm = () => {
-        console.log('Form')
-        console.log(arrInputs)
+        console.log('Datos enviados por el Formulario de Contacto')
+        arrInputs.map((n) => console.log(`${n.label}: ${n.value}`))
     }
 
     return (
@@ -34,6 +34,7 @@ const Form = ({ title, subtitle, arrInputs }) => {
                     {arrInputs.map(input)}
                     <div className="d-grid gap-2">
                         <button onClick={handleSendForm} className="btn btn-success" type="button">Enviar</button>
+                        <p className="text-center"><small>Al Enviar, el resultado del formulario se mostrara en consola.</small></p>
                     </div>
                 </form>
             </div>

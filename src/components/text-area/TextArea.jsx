@@ -1,24 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import styles from './TextArea.module.css'
 
 const TextArea = ({ props }) => {
-    const [value, setvalue] = useState(props.value)
-    const handleChangeValue = (event) => setvalue(event.target.value)
 
     useEffect(() => {
-        // console.log(value);
-    }, [value]);
+        // console.log("INIT: TextArea");
+    }, []);
 
     return (
         <div className={styles.TextArea}>
             <label className="form-label">{props.label}</label>
             <textarea className="form-control form-control-lg"
-                onChange={handleChangeValue}
+                onChange={props.handle}
                 rows={props.rows}
                 cols={props.cols}
                 placeholder={props.placeholder}
+                value={props.value}
             >
-                {value}
             </textarea>
         </div>
     )
